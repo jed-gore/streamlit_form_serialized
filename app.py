@@ -2,6 +2,7 @@ import streamlit as st
 
 import sqlalchemy as sa
 
+# relationship and backref will be used in a future push
 
 from sqlalchemy.orm import (
     scoped_session,
@@ -13,10 +14,12 @@ from sqlalchemy.orm import (
 
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
-
+# create local sqlite db
 engine = sa.create_engine("sqlite:///data.db", echo=True)
 session = scoped_session(sessionmaker(bind=engine))
 Base = declarative_base()
+
+# declare modules
 
 
 class User(Base):
@@ -28,10 +31,14 @@ class User(Base):
         return "<User(name={self.name!r})>".format(self=self)
 
 
+# create tables ( strange error if already exists - so this is caught in a try except )
 try:
     Base.metadata.create_all(engine)
 except:
     print("database already created")
+
+
+# generate marshmallow schemas
 
 
 class UserSchema(SQLAlchemyAutoSchema):
@@ -39,6 +46,9 @@ class UserSchema(SQLAlchemyAutoSchema):
         model = User
         include_relationships = True
         load_instance = True
+
+
+# create simple streamlit form
 
 
 def form():
@@ -51,6 +61,9 @@ def form():
             add_data(name)
 
 
+# add data function drives the SQL insert and commit
+
+
 def add_data(name):
     user = User(name=name)
     user_schema = UserSchema()
@@ -58,9 +71,11 @@ def add_data(name):
     session.commit()
     st.success("Saved")
     dump_data = user_schema.dump(user)
-    st.markdown(dump_data)
+    st.markdown(dump_data)  # dump the serialized json to the screen
 
     return
 
 
-form()
+# run the form
+if __name__ == "__main__":
+    form()
