@@ -11,3 +11,5 @@ Then, close the app in Terminal and run "streamlit run sql_admin.py" and in the 
 ![image](https://user-images.githubusercontent.com/39496491/230428074-1c6eda01-5e77-4c7f-81b8-1a84ce3c5a7f.png)
 
 Future work on this project will have the ability to edit / delete entries in the original Form, as well as one-to-many relationships between "user" and other objects.
+
+Credit: https://www.sqlitetutorial.net/sqlite-python/sqlite-python-select/ for the sql_admin.py file.
