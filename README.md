@@ -1,6 +1,6 @@
 # Streamlit Form Serialized
 
-The goal of this rep is to demonstrate the usage of Marshmallow, Streamlit Forms, and SQL Alchemy to persist python objects in SQL and use Streamlit as an input engine.
+The goal of this repo is to demonstrate the simplified usage of Marshmallow, Streamlit Forms, and SQL Alchemy to persist python objects in SQL and use Streamlit as an input engine.
 
 From a Terminal in VSCode run "streamlit run app.py" to launch the input app.  Enter a user name and submit.
 
