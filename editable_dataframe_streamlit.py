@@ -14,7 +14,7 @@ def load_data():
     try:
         df = pd.read_sql_query("SELECT * from portfolios", conn)
     except:
-        data = ["Test User", "WMT", "Portfolio One"]
+        data = [["Test User", "WMT", "Portfolio One"]]
         df = pd.DataFrame(data, columns=["analyst", "ticker", "portfolio_name"])
 
     return df
