@@ -20,7 +20,7 @@ Credit: https://www.sqlitetutorial.net/sqlite-python/sqlite-python-select/ for t
 
 EDITABLE_DATAFRAME_STREAMLIT.PY
 
-From a Terminal in VSCode run "streamlit run editable_dataframe_streamlit.py" to launch the input app.  Enter a user name and an associated object and submit.
+From a Terminal in VSCode run "streamlit run editable_dataframe_streamlit.py" to launch the input app.
 
 You'll see a dataframe you can edit by clicking on it.  And then you can save the edited dataframe to SQL or download to CSV.
 
